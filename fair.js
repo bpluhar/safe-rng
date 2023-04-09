@@ -83,10 +83,10 @@ module.exports = {
         const randomNum = this.generateInteger(clientseed, serverseed, nonce, 0, totalProbability - 1);
         
         // Iterate over the objects and subtract their probabilities from the random number
-        let accumulator = 0;
+        let index = 0;
         for (let i = 0; i < objects.length; i++) {
-          accumulator += objects[i].probability;
-          if (randomNum < accumulator) {
+            index += objects[i].probability;
+          if (randomNum < index) {
             return objects[i].id;
           }
         }
