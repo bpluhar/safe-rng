@@ -80,7 +80,7 @@ module.exports = {
         const totalProbability = objects.reduce((acc, obj) => acc + obj.probability, 0);
         
         // Generate a random number between 0 and the total probability
-        const randomNum = fairJS.generateInteger(clientseed, serverseed, nonce, 0, totalProbability - 1);
+        const randomNum = this.generateInteger(clientseed, serverseed, nonce, 0, totalProbability - 1);
         
         // Iterate over the objects and subtract their probabilities from the random number
         let accumulator = 0;
