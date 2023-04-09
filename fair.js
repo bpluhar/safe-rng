@@ -26,8 +26,13 @@ module.exports = {
         return crypto.randomBytes(256).toString('hex')
     },
     
+    /**
+     * Generates a random 256 long hex hash
+     * 
+     * @returns {string} random 256 long string
+    */
     generateClientSeed: function() {
-        //! Generate on account creation
+        return crypto.randomBytes(256).toString('hex')   
     },
 
     /**
@@ -40,7 +45,7 @@ module.exports = {
      * @param {number} max - The maximum value of the range.
      * @returns {number} A random integer between min and max (inclusive).
      */
-    generateInteger:   function(clientseed, serverseed, nonce, min, max) {
+    generateInteger: function(clientseed, serverseed, nonce, min, max) {
         const preHash = combine(clientseed, serverseed, nonce)
         const hash    = sha512(preHash)
 
@@ -57,16 +62,7 @@ module.exports = {
      * @param {number} nonce       - The nonce.
      * @returns {boolean} random boolean true/false
     */
-    generateBool:      function(clientseed, serverseed, nonce) {
+    generateBool: function(clientseed, serverseed, nonce) {
         return this.generateInteger(clientseed, serverseed, nonce, 0, 1) === 1 ? true : false
     },
-
-
-
-
 }
-
-
-
-
-
