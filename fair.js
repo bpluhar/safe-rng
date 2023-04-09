@@ -65,4 +65,30 @@ module.exports = {
     generateBool: function(clientseed, serverseed, nonce) {
         return this.generateInteger(clientseed, serverseed, nonce, 0, 1) === 1 ? true : false
     },
+
+    /**
+     * Selects a random object from an array of objects based on their probabilities.
+     *
+     * @param {string} clientseed - The client seed.
+     * @param {string} serverseed - The server seed.
+     * @param {number} nonce      - The nonce.
+     * @param {Array}  objects    - An array of objects with an ID and a probability property.
+     * @returns {String} The ID of the randomly selected object.
+     */
+    selectRandomObject: function(clientseed, serverseed, nonce, objects) {
+        // Calculate the total probability of all objects
+        const totalProbability = objects.reduce((acc, obj) => acc + obj.probability, 0);
+        
+        // Generate a random number between 0 and the total probability
+        const randomNum = fairJS.generateInteger(clientseed, serverseed, nonce, 0, totalProbability - 1);
+        
+        // Iterate over the objects and subtract their probabilities from the random number
+        let accumulator = 0;
+        for (let i = 0; i < objects.length; i++) {
+          accumulator += objects[i].probability;
+          if (randomNum < accumulator) {
+            return objects[i].id;
+          }
+        }
+      }
 }
