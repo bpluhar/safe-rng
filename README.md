@@ -9,3 +9,6 @@ nonce to ensure that the generated numbers are transparent and fair.
 It's simple to use and integrates easily into existing applications. 
 FairJS is released under the MIT license and is free for personal and 
 commercial use.
+
+Please refer to the wiki if you dont understand how to implement it :D
+https://github.com/Disemerge/fairjs/wiki/API
