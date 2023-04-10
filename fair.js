@@ -88,7 +88,7 @@ module.exports = {
 
         return parseFloat(float.toFixed(precision));
     },
-    
+
     /**
      *  Generates a random boolean using the specified client seed, server seed, and nonce.
      * 
@@ -119,8 +119,7 @@ module.exports = {
     
         const normalizedProbabilities = objects.map(obj => obj.probability / totalProbability);
     
-        const randomFloat = this.generateFloats(clientSeed, serverSeed, nonce);
-        console.log(randomFloat, normalizedProbabilities)
+        const randomFloat = this.generateFloats(clientSeed, serverSeed, nonce, 10);
 
         let index = 0;
         for (let i = 0; i < normalizedProbabilities.length; i++) {
