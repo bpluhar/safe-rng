@@ -13,10 +13,10 @@ in online gambling and betting applications.
 const crypto = require('crypto')
 
 const combine = (client, server, nonce) => client + server + nonce
-const sha512  = string => crypto.createHash('sha512').update(string).digest('hex')
 
-module.exports = {
+module.exports = { 
 
+    sha512: string => crypto.createHash('sha512').update(string).digest('hex'),
     /**
      * Generates a random 256 long hex hash
      * 
@@ -51,7 +51,7 @@ module.exports = {
      */
     byteGenerator: function(clientseed, serverseed, nonce) {
         const preHash = combine(clientseed, serverseed, nonce);
-        const hash = sha512(preHash);
+        const hash    = this.sha512(preHash);
         return this.hexToBytes(hash.slice(0, 64));
     },
 
@@ -67,7 +67,7 @@ module.exports = {
      */
     generateInteger: function(clientSeed, serverSeed, nonce, min, max) {
         const preHash = combine(clientSeed, serverSeed, nonce)
-        const hash    = sha512(preHash)
+        const hash    = this.sha512(preHash)
         const range   = max - min + 1
 
         return parseInt(hash.slice(0, 8), 16) % range + min;
@@ -135,3 +135,5 @@ module.exports = {
 
 
 }
+
+
