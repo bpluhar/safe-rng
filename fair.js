@@ -96,7 +96,7 @@ module.exports = {
      * @param {number} [precision=2] - The number of decimal places to include in the result.
      * @returns {number} - The random float between 0 and 1.
      */
-    generateFloats: function(clientSeed, serverSeed, nonce, precision = 2) {
+    generateFloat: function(clientSeed, serverSeed, nonce, precision = 2) {
         const bytes = this.byteGenerator(clientSeed, serverSeed, nonce);
         const float = parseFloat("0." + bytes.join(""), 10);
 
@@ -112,8 +112,7 @@ module.exports = {
      * @returns {float, boolean} random boolean true/false
     */
     generateBool: function(clientSeed, serverSeed, nonce) {
-        // Returns the generated float and result.
-        return this.generateFloats(clientSeed, serverSeed, nonce, 10), this.generateFloats(clientSeed, serverSeed, nonce, 10) <= 0.5 ? true : false
+        return this.generateFloat(clientSeed, serverSeed, nonce, 10) <= 0.5 ? true : false
     },
 
     /**
@@ -133,7 +132,7 @@ module.exports = {
     
         const normalizedProbabilities = objects.map(obj => obj.probability / totalProbability);
     
-        const randomFloat = this.generateFloats(clientSeed, serverSeed, nonce, 10);
+        const randomFloat = this.generateFloat(clientSeed, serverSeed, nonce, 10);
 
         let index = 0;
         for (let i = 0; i < normalizedProbabilities.length; i++) {
