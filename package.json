@@ -1,6 +1,6 @@
 {
   "name": "fair.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "FairJS is a JavaScript library for generating provably fair numbers in online gambling and betting applications. It provides a set of functions for generating integers, floats, and dice rolls, as well as utility functions for combining seeds and hashing data using the SHA256 algorithm. FairJS uses a combination of client seed, server seed, and nonce to ensure that the generated numbers are transparent and fair. It's simple to use and integrates easily into existing applications. FairJS is released under the MIT license and is free for personal and commercial use.",
   "main": "fair.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Disemerge/fairjs.git"
+    "url": "git+https://github.com/bpluhar/fair.js.git"
   },
   "keywords": [
     "gamble",
@@ -17,11 +17,10 @@
     "fair",
     "betting"
   ],
-  "author": "disemerge",
+  "author": "Brian Pluhar",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Disemerge/fairjs/issues"
+    "url": "https://github.com/bpluhar/fair.js/issues"
   },
-  "homepage": "https://github.com/Disemerge/fairjs#readme"
-  }
+  "homepage": "https://github.com/bpluhar/fair.js#readme"
 }
