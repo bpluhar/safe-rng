@@ -1,26 +1,28 @@
 {
-  "name": "fair.js",
-  "version": "1.0.1",
-  "description": "FairJS is a JavaScript library for generating provably fair numbers in online gambling and betting applications. It provides a set of functions for generating integers, floats, and dice rolls, as well as utility functions for combining seeds and hashing data using the SHA256 algorithm. FairJS uses a combination of client seed, server seed, and nonce to ensure that the generated numbers are transparent and fair. It's simple to use and integrates easily into existing applications. FairJS is released under the MIT license and is free for personal and commercial use.",
-  "main": "fair.js",
+  "name": "safe-rng",
+  "version": "1.0.2",
+  "description": "SafeRNG is a JavaScript library for generating provably fair numbers in online gambling and betting applications. It provides a set of functions for generating integers, floats, and dice rolls, as well as utility functions for combining seeds and hashing data using the SHA256 algorithm. SafeRNG uses a combination of client seed, server seed, and nonce to ensure that the generated numbers are transparent and fair. It's simple to use and integrates easily into existing applications. SafeRNG is released under the MIT license and is free for personal and commercial use.",
+  "main": "safe-rng.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bpluhar/fair.js.git"
+    "url": "git+https://github.com/bpluhar/safe-rng.git"
   },
   "keywords": [
     "gamble",
-    "fair",
+    "safe",
     "provably",
+    "provable",
     "fair",
-    "betting"
+    "betting",
+    "rng"
   ],
   "author": "Brian Pluhar",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bpluhar/fair.js/issues"
+    "url": "https://github.com/bpluhar/safe-rng/issues"
   },
-  "homepage": "https://github.com/bpluhar/fair.js#readme"
+  "homepage": "https://github.com/bpluhar/safe-rng#readme"
 }
