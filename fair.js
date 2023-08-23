@@ -1,16 +1,16 @@
 /*
-Title: Fairjs
-Author: Disemerge
+Title: fair.js
+Author: Brian Pluhar
 
-FairJS is a JavaScript library for generating provably fair numbers in online gambling and betting applications. 
+Fair.JS is a JavaScript library for generating provably fair numbers in online gambling and betting applications. 
 It uses a combination of client seed, server seed, and nonce to generate random numbers within a specified range.
-FairJS provides functions for generating integers, floats, and dice rolls, as well as utility functions for combining 
-seeds and hashing data. Overall, FairJS is a simple and easy-to-use library that ensures fairness and transparency 
+Fair.JS provides functions for generating integers, floats, and dice rolls, as well as utility functions for combining 
+seeds and hashing data. Overall, Fair.JS is a simple and easy-to-use library that ensures fairness and transparency 
 in online gambling and betting applications.
 */
 
-
-const crypto = require('crypto')
+// Built-in
+const crypto = require('crypto');
 
 module.exports = { 
     /**
@@ -24,12 +24,12 @@ module.exports = {
     combine: (client, server, nonce) => client + server + nonce,
 
     /**
-     * Generates a sha512 hash from a string
+     * Generates a sha256 hash from a string
      * 
      * @param   {string} string - input string
      * @returns {string} random 256 long string
     */
-    sha512: string => crypto.createHash('sha512').update(string).digest('hex'),
+    sha256: string => crypto.createHash('sha256').update(string).digest('hex'),
     
     /**
      * Generates a random 256 long hex hash
@@ -65,7 +65,7 @@ module.exports = {
      */
     byteGenerator: function(clientseed, serverseed, nonce) {
         const preHash = this.combine(clientseed, serverseed, nonce);
-        const hash    = this.sha512(preHash);
+        const hash    = this.sha256(preHash);
         return this.hexToBytes(hash.slice(0, 64));
     },
 
@@ -81,7 +81,7 @@ module.exports = {
      */
     generateInteger: function(clientSeed, serverSeed, nonce, min, max) {
         const preHash = this.combine(clientSeed, serverSeed, nonce)
-        const hash    = this.sha512(preHash)
+        const hash    = this.sha256(preHash)
         const range   = max - min + 1
 
         return parseInt(hash.slice(0, 8), 16) % range + min;
