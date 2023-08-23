@@ -1,6 +1,6 @@
 {
   "name": "safe-rng",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "SafeRNG is a JavaScript library for generating provably fair numbers in online gambling and betting applications. It provides a set of functions for generating integers, floats, and dice rolls, as well as utility functions for combining seeds and hashing data using the SHA256 algorithm. SafeRNG uses a combination of client seed, server seed, and nonce to ensure that the generated numbers are transparent and fair. It's simple to use and integrates easily into existing applications. SafeRNG is released under the MIT license and is free for personal and commercial use.",
   "main": "safe-rng.js",
   "scripts": {
